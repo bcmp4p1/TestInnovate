@@ -27,7 +27,6 @@ export const App = () => {
       setIsLogin(true);
       setIsProfile(false);
     }
-    
   };
 
   const handleLogin = () => {
@@ -37,7 +36,7 @@ export const App = () => {
   };
 
   const handleSubmit = () => {
-    const selectedUser = getUserByName(login)
+    const selectedUser = getUserByName(login);
 
     if (selectedUser && selectedUser.password === password) {
       setUser(selectedUser);
@@ -48,24 +47,26 @@ export const App = () => {
     }
   };
 
-
   return (
     <>
       <header>
         <button
           onClick={handleHome}
+          type="button"
         >
           Home
         </button>
 
         <button
-            onClick={handleProfile}
+          onClick={handleProfile}
+          type="button"
         >
           Profile
         </button>
 
         <button
-            onClick={handleLogin}
+          onClick={handleLogin}
+          type="button"
         >
           Login
         </button>
@@ -92,27 +93,31 @@ export const App = () => {
 
         {isLogin && (
           <>
-            <form 
+            <form
               onSubmit={handleSubmit}
             >
-              <input 
-                type="text" 
-                placeholder='enter your email' 
+              <input
+                type="text"
+                placeholder="enter your email"
                 required
                 value={login}
-                onChange={(event) => setLogin(event.target.value)}
+                onChange={event => setLogin(event.target.value)}
               />
-              <input 
-                type="password" 
-                placeholder='enter your password' 
-                required 
+              <input
+                type="password"
+                placeholder="enter your password"
+                required
                 value={password}
-                onChange={(event) => setPassword(event.target.value)}
+                onChange={event => setPassword(event.target.value)}
               />
               {isError && (
                 <p>Please enter valid details</p>
               )}
-              <button>submit</button>
+              <button
+                type="button"
+              >
+                submit
+              </button>
             </form>
           </>
         )}
